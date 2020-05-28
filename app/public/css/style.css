@@ -69,9 +69,18 @@
 	color: #333333;
 }
 
+#btn_suditos{
+	cursor: pointer;
+}
+
+#btn_pergaminhos{
+	cursor: pointer;
+}
+
 #pergaminhos{
 	max-height: 180px;
 	overflow: auto;
+	cursor: pointer;
 }
 
 .casa span{

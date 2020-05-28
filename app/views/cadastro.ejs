@@ -1,57 +1,69 @@
 <!DOCTYPE HTML>
 <html lang="pt-br">
-	<head>
-		<meta charset="UTF-8">
 
-		<title>MMORPG - Game of Thrones</title>
-		
-		<!-- JQuery -->
-		<script src="js/jquery-2.2.1.js"></script>
+<head>
+	<meta charset="UTF-8">
 
-		<!-- bootstrap - link cdn -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	
-		<!-- incluindo css -->
-		<link href="css/style.css" rel="stylesheet">
+	<title>MMORPG - Game of Thrones</title>
 
-	</head>
+	<!-- JQuery -->
+	<script src="js/jquery-2.2.1.js"></script>
 
-	<body class="body-index">
+	<!-- bootstrap - link cdn -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+		integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-		<nav class="navbar navbar-default navbar-static-top">
-			<div class="container">
-				<form class="form-inline form-entrar">
-					<div class="form-group">				
-						<button type="button" class="btn btn-success">Voltar</button>
-					</div>
-				</form>
+	<!-- incluindo css -->
+	<link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body class="body-index">
+
+	<nav class="navbar navbar-default navbar-static-top">
+		<div class="container">
+			<form class="form-inline form-entrar">
+				<div class="form-group">
+					<a class="btn btn-success" href="/">Voltar</a>
+				</div>
+			</form>
+		</div>
+
+	</nav>
+
+	<div class="container">
+		<% if(validacao.length > 0){%>
+			<div class="alert alert-danger">
+				<strng>Atenção!</strng>
+				<ul>
+					<%for(var i = 0; i < validacao.length; i++){ %>
+						<li><%=validacao[i].msg%></li>
+
+					<% } %>
+				</ul>
 			</div>
-			
-		</nav>
-
-	    <div class="container">
-	    		
-			<form class="form-cadastro">
+		<% } %>
+			<form class="form-cadastro" action="/cadastrar" method="post">
 			
 				<div class="row">
 					<div class="col-xs-4">
 						<div class="form-group">
 							<label for="nome" class="col-sm-2 col-form-label">Nome</label>
-							<input type="nome" class="form-control" id="nome" placeholder="Nome">
+							<input type="nome" value="<%=dadosForm.nome%>" class="form-control" id="nome" name="nome" placeholder="Nome">
 						</div>
 					</div>
 					
 					<div class="col-xs-4">
 						<div class="form-group">
 							<label for="usuario" class="col-sm-2 col-form-label">Usuário</label>
-							<input type="usuario" class="form-control" id="usuario" placeholder="Usuário">
+							<input type="usuario" value="<%=dadosForm.usuario%>" class="form-control" id="usuario" name="usuario" placeholder="Usuário">
 						</div>
 					</div>
 					
 					<div class="col-xs-4">
 						<div class="form-group">
 							<label for="senha" class="col-sm-2 col-form-label">Senha</label>
-							<input type="password" class="form-control" id="senha" placeholder="Password">
+							<input type="password" value="<%=dadosForm.senha%>" class="form-control" id="senha" name="senha" placeholder="Password">
 						</div>
 					</div>
 				</div>
